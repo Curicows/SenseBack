@@ -37,7 +37,7 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        $nome = $request->json()->get('nome');
+        $nome = $request->get('nome');
         if ($nome === null) {
             return $this->responseError(400);
         }
@@ -87,7 +87,7 @@ class CategoriaController extends Controller
     public function update(Request $request, $id)
     {
         $categoria = Categoria::find($id);
-        $nome = $request->json()->get('nome');
+        $nome = $request->get('nome');
         if ($categoria == "") {
             return $this->responseError(404);
         }

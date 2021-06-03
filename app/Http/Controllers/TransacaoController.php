@@ -36,10 +36,10 @@ class TransacaoController extends Controller
      */
     public function store(Request $request)
     {
-        $titulo = $request->json()->get('titulo');
-        $valor = $request->json()->get('valor');
-        $tipo = $request->json()->get('tipo');
-        $categoria = $request->json()->get('categoria');
+        $titulo = $request->get('titulo');
+        $valor = $request->get('valor');
+        $tipo = $request->get('tipo');
+        $categoria = $request->get('categoria');
         if ($titulo === null || $valor === null || $tipo === null || $categoria === null) {
             return $this->responseError(400);
         }
@@ -92,10 +92,10 @@ class TransacaoController extends Controller
     public function update(Request $request, $id)
     {
         $transacao = Transacao::find($id);
-        $titulo = $request->json()->get('titulo');
-        $valor = $request->json()->get('valor');
-        $tipo = $request->json()->get('tipo');
-        $categoria = $request->json()->get('categoria');
+        $titulo = $request->get('titulo');
+        $valor = $request->get('valor');
+        $tipo = $request->get('tipo');
+        $categoria = $request->get('categoria');
         if ($titulo === null || $valor === null || $tipo === null || $categoria === null) {
             return $this->responseError(400);
         }
