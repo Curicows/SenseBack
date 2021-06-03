@@ -20,6 +20,18 @@ class Transacao extends Model
       'created_at' => 'date:Y-m-d'
     ];
 
+    public function toJson($options = 0)
+    {
+        return json_encode([
+            'id' => $this->id,
+            'titulo' => $this->titulo,
+            'valor' => $this->valor,
+            'tipo' => $this->tipo_id,
+            'categoria' => $this->categoria_id,
+            'created_at' => $this->created_at
+        ]);
+    }
+
     public function tipo() {
         return $this->belongsTo(Tipo::class);
     }
