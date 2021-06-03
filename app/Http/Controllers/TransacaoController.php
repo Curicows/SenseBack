@@ -44,13 +44,13 @@ class TransacaoController extends Controller
             return $this->responseError(400);
         }
 
-        Transacao::create([
+        $transacao = Transacao::create([
             'titulo' => $titulo,
             'valor' => $valor,
             'tipo_id' => $tipo,
             'categoria_id' => $categoria
         ]);
-        return $this->responseError(201);
+        return response()->json($transacao->toArray());
 
     }
 
